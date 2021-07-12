@@ -33,5 +33,8 @@ var getAndDate = function (val) {
 var callNewFunctionBasedOnGetAndDataResult = function () {
     console.log("yep i am there");
 };
+if (getAndDate(1)) {
+    callNewFunctionBasedOnGetAndDataResult();
+}
 //shorthand
-getAndDate(1) && callNewFunctionBasedOnGetAndDataResult();
+getAndDate(1) && callNewFunctionBasedOnGetAndDataResult(); //if getAndData get true,then new function triggered
