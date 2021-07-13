@@ -44,3 +44,35 @@ const Quadratic = () => {
   }
 };
 Quadratic();
+
+//Logarithmic algorithm
+
+//An algorithm is said to run in logarithmic time if its time execution is proportional to the logarithm of the input size, and we mark it as O(log n).
+
+//An example of an O(log n) algorithm would be a binary search algorithm.
+
+let recursiveFunction = function (arr, x) {
+  
+  let start=0, end=arr.length-1;
+        
+  // Iterate while start not meets end
+  while (start<=end){
+
+      // Find the mid index
+      let mid=Math.floor((start + end)/2);
+      console.log(mid)
+ 
+      // If element is present at mid, return True
+      if (arr[mid]===x) return true;
+
+      // Else look in left or right half accordingly
+      else if (arr[mid] < x) 
+           start = mid + 1;
+      else
+           end = mid - 1;
+  }
+ 
+  return false;
+}
+
+console.log(recursiveFunction([1, 3, 5, 7, 8, 9],14))
