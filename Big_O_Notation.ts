@@ -60,7 +60,6 @@ let recursiveFunction = function (arr, x) {
 
       // Find the mid index
       let mid=Math.floor((start + end)/2);
-      console.log(mid)
  
       // If element is present at mid, return True
       if (arr[mid]===x) return true;
