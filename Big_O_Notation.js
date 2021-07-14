@@ -32,3 +32,44 @@ var Quadratic = function () {
     }
 };
 Quadratic();
+//Logarithmic algorithm
+//An algorithm is said to run in logarithmic time if its time execution is proportional to the logarithm of the input size, and we mark it as O(log n).
+//An example of an O(log n) algorithm would be a binary search algorithm.
+//O(n) value search
+var isValueAvailable_On = function (arr, val) {
+    var start = 0;
+    var end = arr.length - 1;
+    var time = 0;
+    while (start <= end) {
+        time += 1;
+        console.log(time, 'time');
+        if (arr[start] == val) {
+            return true;
+        }
+        start++;
+    }
+    return false;
+};
+console.log(isValueAvailable_On(["ashok", "bejo", "arun", "virat", "ajith", "vihay", "amma", "appa", "jithu", 2, 3], 3));
+//O(log n) binary search;
+var isValueAvailable_Ologn = function (arr, val) {
+    var start = 0;
+    var end = arr.length - 1;
+    var time = 0;
+    while (start <= end) {
+        time += 1;
+        var mid = Math.floor((start + end) / 2);
+        console.log(time, 'time');
+        if (arr[mid] == val) {
+            return true;
+        }
+        else if (mid < arr.indexOf(val)) {
+            start = mid + 1;
+        }
+        else {
+            end = mid - 1;
+        }
+    }
+    return false;
+};
+console.log(isValueAvailable_Ologn(["ashok", "bejo", "arun", "virat", "ajith", "vihay", "amma", "appa", "jithu", 2, 3], 3));
