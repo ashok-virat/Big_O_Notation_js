@@ -1,30 +1,32 @@
-var HashTable = /** @class */ (function () {
-    function HashTable() {
-        this.list = [];
-    }
-    HashTable.prototype.get = function (x) {
-        var result;
-        this.list.forEach(function (pair) {
-            if (pair[0] === x) {
-                result = pair[1];
-            }
-        });
-        return result;
-    };
-    HashTable.prototype.set = function (x, y) {
-        this.list.push([x, y]);
-    };
-    return HashTable;
-}());
-var table = new HashTable();
-console.time("with lots of records in the map");
-table.set(1, 1);
-table.set(2, 2);
-console.timeEnd("with lots of records in the map");
-table.get("i am not exsist");
-for (var x = 0; x < 100000; x++) {
-    table.set(x, x);
+let hashStringToInteger = (s, tableSize) => {
+  let hash = 17;
+  for (let i = 0; i < s.length; i++) {
+    hash = (13 * hash * s.charCodeAt(i)) % tableSize;
+  }
+  console.log(hash);
+  return hash;
+};
+
+class HashTable {
+  constructor() {
+    this.list = new Array(100);
+  }
+
+  set(x, y) {
+    const hashId = hashStringToInteger(x, this.list.length);
+    this.list[hashId] = y;
+  }
+
+  get(x) {
+    const hashId = hashStringToInteger(x, this.list.length);
+    console.log(this.list);
+    return this.list[hashId];
+  }
 }
-console.time("with lots of records in the map");
-console.log(table.get(1));
-console.timeEnd("with lots of records in the map");
+
+var table = new HashTable();
+table.set("firstName", "ashok");
+table.set("lastName", "arun");
+table.set('dob','12')
+
+console.log(table.get("firstName"));
