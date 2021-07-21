@@ -28,5 +28,3 @@ var table = new HashTable();
 table.set("firstName", "ashok");
 table.set("lastName", "arun");
 table.set('dob','12')
-
-console.log(table.get("firstName"));
