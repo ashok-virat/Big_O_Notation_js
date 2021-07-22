@@ -1,3 +1,5 @@
+//elements available check
+
 const arr = new Array();
 
 for (i = 0; i <= 10000000; i++) {
@@ -55,3 +57,41 @@ console.timeEnd("isElementAvailableUsingFind");
 console.time("isElementAvailableUsingSome");
 console.log(getValUsingSome("element10000000")); //almost simler to the find 180.720ms
 console.timeEnd("isElementAvailableUsingSome");
+
+//elements value change
+const arr1 = [];
+for (i = 0; i <= 10000000; i++) {
+  arr1.push(i);
+}
+
+const multiplyValueUsingForLoop = (val) => {
+  for (i = 0; i <= arr1.length; i++) {
+    if (arr1[i]) {
+      arr1[i] = arr1[i] * val;
+    }
+  }
+  return arr1;
+};
+
+const multiplyValueUsingMap = (val) => {
+  return arr1.map((x) => x * val);
+};
+
+const multiplyValueUsingForEach = (val) => {
+  arr1.forEach((x, y) => {
+    arr1[y] = x * 2;
+  });
+  return arr1;
+};
+
+console.time("multiplyValueUsingForLoop");
+console.log(multiplyValueUsingForLoop(2)); //116ms
+console.timeEnd("multiplyValueUsingForLoop");
+
+console.time("multiplyValueUsingMap");
+console.log(multiplyValueUsingMap(2)); //275.77ms
+console.timeEnd("multiplyValueUsingMap");
+
+console.time("multiplyValueUsingForEach");
+console.log(multiplyValueUsingForEach(2)); // 289.160ms
+console.timeEnd("multiplyValueUsingForEach");
