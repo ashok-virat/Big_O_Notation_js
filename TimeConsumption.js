@@ -42,8 +42,15 @@ const getValUsingSome = (val) => {
   return arr.some((x) => x === val);
 };
 
+const getValueUsingLinearthmicAlg = (val) => {
+  if (arr.indexOf(val) >= 0) {
+    return true;
+  }
+  return false;
+};
+
 console.time("isElementAvailableUsingForLoop");
-console.log(getValUsingForLoop("element10000000")); // almost simler to the while loop 55.664ms
+console.log(getValUsingForLoop("element10000000")); // almost simler to the while loop 55.664ms o of n
 console.timeEnd("isElementAvailableUsingForLoop");
 
 console.time("isElementAvailableUsingWhileLoop");
@@ -51,12 +58,16 @@ console.log(getValUsingWhileLoop("element10000000")); // 53.227mms
 console.timeEnd("isElementAvailableUsingWhileLoop");
 
 console.time("isElementAvailableUsingFind");
-console.log(getValUsingFind("element10000000")); //192.485ms
+console.log(getValUsingFind("element10000000")); //192.485ms o of n
 console.timeEnd("isElementAvailableUsingFind");
 
 console.time("isElementAvailableUsingSome");
-console.log(getValUsingSome("element10000000")); //almost simler to the find 180.720ms
+console.log(getValUsingSome("element10000000")); //almost simler to the find 180.720ms o 0f n
 console.timeEnd("isElementAvailableUsingSome");
+
+console.time("getValueUsingLinearthmicAlg");
+console.log(getValueUsingLinearthmicAlg("element100000001")); //o of 1 34.247
+console.timeEnd("getValueUsingLinearthmicAlg");
 
 //elements value change
 const arr1 = [];
